@@ -336,71 +336,15 @@ It showcases real-world AI engineering skills beyond basic machine learning mode
 
 ## 🏗 System Architecture
 
-User Interface (React / Next.js)
-        │
-        ▼
-FastAPI Backend (Chat + Upload APIs)
-        │
-        ▼
-Agent Controller (Planner Agent)
-        │
-        ├── Retriever Tool
-        ├── Web Search Tool
-        └── Conversation Memory
-        │
-        ▼
-Hybrid Retrieval Engine
-(Vector Search + Keyword Search)
-        │
-        ├── Vector Database (FAISS / Pinecone)
-        └── Keyword Search (BM25 / ElasticSearch)
-        │
-        ▼
-LLM Layer (GPT / Llama / Mistral)
-        │
-        ▼
-Final Response
-Answer + Source Citations
+The system follows an Agentic RAG architecture combining AI agents,
+hybrid retrieval, and large language models to provide accurate
+answers with citations.
+
+<p align="center">
+  <img src="System_Architecture.png" width="900">
+</p>
+
 ---
-
-## 🧩 Agent Workflow
-
-User Question
-     │
-     ▼
-┌─────────────────────┐
-│     Planner Agent   │
-└─────────┬───────────┘
-          │
-          ├── Retrieve from Vector DB
-          │
-          ├── Perform Keyword Search
-          │
-          ├── Use Web Search Tool
-          │
-          ▼
-┌─────────────────────┐
-│    Retriever Agent  │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│ Context Aggregation │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│    LLM Reasoning    │
-│   (GPT / Llama)     │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│  Answer + Citation  │
-└─────────────────────┘
-
-```
-
 
 # 🔮 Future Improvements
 
