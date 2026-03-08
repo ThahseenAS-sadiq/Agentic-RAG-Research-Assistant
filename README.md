@@ -334,76 +334,73 @@ It showcases real-world AI engineering skills beyond basic machine learning mode
 
 ---
 
-# 🏗 System Design Diagram 
+## 🏗 System Architecture
 
-flowchart TD
-
-A[User Interface<br>React / Next.js]
-
-B[FastAPI Backend<br>Chat + Upload APIs]
-
-C[Agent Controller<br>Planner Agent]
-
-D[Retriever Tool]
-
-E[Web Search Tool]
-
-F[Conversation Memory]
-
-G[Hybrid Retrieval Engine]
-
-H[Vector Search<br>FAISS / Pinecone]
-
-I[Keyword Search<br>BM25 / ElasticSearch]
-
-J[LLM Layer<br>GPT / Llama]
-
-K[Final Response<br>Answer + Citations]
-
-A --> B
-B --> C
-
-C --> D
-C --> E
-C --> F
-
-D --> G
-
-G --> H
-G --> I
-
-H --> J
-I --> J
-
-J --> K
+User Interface (React / Next.js)
+        │
+        ▼
+FastAPI Backend (Chat + Upload APIs)
+        │
+        ▼
+Agent Controller (Planner Agent)
+        │
+        ├── Retriever Tool
+        ├── Web Search Tool
+        └── Conversation Memory
+        │
+        ▼
+Hybrid Retrieval Engine
+(Vector Search + Keyword Search)
+        │
+        ├── Vector Database (FAISS / Pinecone)
+        └── Keyword Search (BM25 / ElasticSearch)
+        │
+        ▼
+LLM Layer (GPT / Llama / Mistral)
+        │
+        ▼
+Final Response
+Answer + Source Citations
 ---
 
-# 🧩 Agent Workflow Diagram
+## 🧩 Agent Workflow
 
 User Question
-      │
-      ▼
-Planner Agent
-      │
-      ├── Retrieve from Vector DB
-      │
-      ├── Perform Keyword Search
-      │
-      ├── Use Web Search Tool
-      │
-      ▼
-Retriever Agent
-      │
-      ▼
-Context Aggregation
-      │
-      ▼
-LLM Reasoning
-      │
-      ▼
-Answer + Citation
+     │
+     ▼
+┌─────────────────────┐
+│     Planner Agent   │
+└─────────┬───────────┘
+          │
+          ├── Retrieve from Vector DB
+          │
+          ├── Perform Keyword Search
+          │
+          ├── Use Web Search Tool
+          │
+          ▼
+┌─────────────────────┐
+│    Retriever Agent  │
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│ Context Aggregation │
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│    LLM Reasoning    │
+│   (GPT / Llama)     │
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│  Answer + Citation  │
+└─────────────────────┘
 
----
+```
+
 
 # 🔮 Future Improvements
 
