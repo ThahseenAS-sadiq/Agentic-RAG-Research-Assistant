@@ -363,6 +363,6 @@ MIT License
 ---
 
 # 👨‍💻 Author
-Thahseen AS
+Thahseen AS 📍 Developer | AIML Student | Passionate about Web Development
 
 AI/ML Developer passionate about building intelligent systems using LLMs, agents, and advanced retrieval architectures.
