@@ -336,55 +336,46 @@ It showcases real-world AI engineering skills beyond basic machine learning mode
 
 # 🏗 System Design Diagram 
 
-                ┌─────────────────────┐
-                │      Frontend       │
-                │  React / Next.js    │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │      FastAPI API    │
-                │  Chat + Upload APIs │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │   Agent Controller  │
-                │  (Planner Agent)    │
-                └──────────┬──────────┘
-                           │
-        ┌──────────────────┼──────────────────┐
-        ▼                  ▼                  ▼
- ┌─────────────┐   ┌─────────────┐    ┌─────────────┐
- │Retriever     │   │Web Search   │    │Memory Store │
- │Agent         │   │Tool         │    │Conversation │
- └──────┬──────┘   └─────────────┘    └─────────────┘
-        │
-        ▼
- ┌──────────────────────────────┐
- │   Hybrid Retrieval Engine    │
- │ Vector Search + BM25 Search  │
- └───────────────┬──────────────┘
-                 │
-        ┌────────┴────────┐
-        ▼                 ▼
- ┌─────────────┐   ┌─────────────┐
- │ Vector DB    │   │Keyword DB   │
- │ FAISS        │   │ElasticSearch│
- └─────────────┘   └─────────────┘
-                 │
-                 ▼
-        ┌─────────────────┐
-        │    LLM Layer    │
-        │ GPT / Llama     │
-        └────────┬────────┘
-                 │
-                 ▼
-        ┌─────────────────┐
-        │  Final Response │
-        │ Answer + Source │
-        └─────────────────┘
+flowchart TD
 
+A[User Interface<br>React / Next.js]
+
+B[FastAPI Backend<br>Chat + Upload APIs]
+
+C[Agent Controller<br>Planner Agent]
+
+D[Retriever Tool]
+
+E[Web Search Tool]
+
+F[Conversation Memory]
+
+G[Hybrid Retrieval Engine]
+
+H[Vector Search<br>FAISS / Pinecone]
+
+I[Keyword Search<br>BM25 / ElasticSearch]
+
+J[LLM Layer<br>GPT / Llama]
+
+K[Final Response<br>Answer + Citations]
+
+A --> B
+B --> C
+
+C --> D
+C --> E
+C --> F
+
+D --> G
+
+G --> H
+G --> I
+
+H --> J
+I --> J
+
+J --> K
 ---
 
 # 🧩 Agent Workflow Diagram
