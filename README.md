@@ -348,11 +348,11 @@ answers with citations.
 
 # 🔮 Future Improvements
 
-• Multi-document reasoning
-• Web search integration
-• Research paper summarization
-• Multi-language document support
-• Advanced reranking models
+• Multi-document reasoning <br> 
+• Web search integration  <br>
+• Research paper summarization  <br>
+• Multi-language document support <br>
+• Advanced reranking models <br>
 
 ---
 
