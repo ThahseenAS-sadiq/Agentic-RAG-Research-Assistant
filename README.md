@@ -280,37 +280,30 @@ AWS / GCP
 
 # 📂 Project Structure
 
-agentic-rag-research-assistant
+> ⚠️ **Note:** This structure represents the initial design before implementation.
+> As development progresses, the folder organization and modules may evolve or change.
 
+```
+agentic-rag-research-assistant/
 │
+├── backend/        # FastAPI backend and AI pipeline
+├── frontend/       # React / Next.js user interface
+├── agents/         # Agentic AI decision logic
+├── retrieval/      # Hybrid search (vector + keyword)
+├── ingestion/      # Document processing pipeline
+├── embeddings/     # Embedding generation
+├── vector_store/   # FAISS / Pinecone integration
+├── memory/         # Conversation memory
+├── llm/            # LLM interaction layer
+├── data/           # Sample documents and datasets
+├── scripts/        # Utility scripts for ingestion and indexing
+├── tests/          # Unit and integration tests
+└── docs/           # Architecture and system design documentation
+```
 
-├── backend
-│   ├── api
-│   ├── agent
-│   ├── retriever
-│   ├── embeddings
-│   └── ingestion
+> 🚧 **Status:** Project currently under development. Structure and modules will be refined as the system evolves.
 
-│
-├── frontend
-│   ├── components
-│   ├── pages
-│   └── services
-
-│
-├── data
-│   └── sample_documents
-
-│
-├── docker
-│   └── Dockerfile
-
-│
-├── requirements.txt
-│
-└── README.md
-
----
+----    
 
 # 🚀 Example Query
 
@@ -338,6 +331,86 @@ LLM integration
 Full-stack AI applications
 
 It showcases real-world AI engineering skills beyond basic machine learning models.
+
+---
+
+# 🏗 System Design Diagram 
+
+                ┌─────────────────────┐
+                │      Frontend       │
+                │  React / Next.js    │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │      FastAPI API    │
+                │  Chat + Upload APIs │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │   Agent Controller  │
+                │  (Planner Agent)    │
+                └──────────┬──────────┘
+                           │
+        ┌──────────────────┼──────────────────┐
+        ▼                  ▼                  ▼
+ ┌─────────────┐   ┌─────────────┐    ┌─────────────┐
+ │Retriever     │   │Web Search   │    │Memory Store │
+ │Agent         │   │Tool         │    │Conversation │
+ └──────┬──────┘   └─────────────┘    └─────────────┘
+        │
+        ▼
+ ┌──────────────────────────────┐
+ │   Hybrid Retrieval Engine    │
+ │ Vector Search + BM25 Search  │
+ └───────────────┬──────────────┘
+                 │
+        ┌────────┴────────┐
+        ▼                 ▼
+ ┌─────────────┐   ┌─────────────┐
+ │ Vector DB    │   │Keyword DB   │
+ │ FAISS        │   │ElasticSearch│
+ └─────────────┘   └─────────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │    LLM Layer    │
+        │ GPT / Llama     │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │  Final Response │
+        │ Answer + Source │
+        └─────────────────┘
+
+---
+
+# 🧩 Agent Workflow Diagram
+
+User Question
+      │
+      ▼
+Planner Agent
+      │
+      ├── Retrieve from Vector DB
+      │
+      ├── Perform Keyword Search
+      │
+      ├── Use Web Search Tool
+      │
+      ▼
+Retriever Agent
+      │
+      ▼
+Context Aggregation
+      │
+      ▼
+LLM Reasoning
+      │
+      ▼
+Answer + Citation
 
 ---
 
